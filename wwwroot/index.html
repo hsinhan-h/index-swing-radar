@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>中證500 跌幅分析工具</title>
+<link rel="manifest" href="/manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CSI 500">
+<meta name="theme-color" content="#0ea5e9">
+<link rel="apple-touch-icon" href="/icon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -169,6 +176,8 @@
   每次查詢快取 10 分鐘，同一小時內重複查詢速度較快
 </footer>
 <script>
+if('serviceWorker' in navigator)
+  navigator.serviceWorker.register('/sw.js');
 let period='month', taskId=null, pollT=null, lastResult=null;
 function sel(p){
   period=p;
