@@ -1,7 +1,7 @@
 {
-  "name": "中證500 跌幅分析",
-  "short_name": "CSI 500",
-  "description": "中證500成分股跌幅排行分析工具",
+  "name": "指數跌幅分析工具",
+  "short_name": "Drop Radar",
+  "description": "多市場指數成分股跌幅排行分析工具（CSI500 / SOX / NDX）",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",

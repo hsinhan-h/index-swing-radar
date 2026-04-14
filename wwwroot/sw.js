@@ -1,4 +1,4 @@
-const CACHE = 'csi500-v1';
+const CACHE = 'csi500-v2';
 const SHELL = ['/'];
 
 // 安裝：快取 APP shell
