@@ -48,7 +48,8 @@ public class ApiController : ControllerBase
         catch (ArgumentException ex) { return BadRequest(new { error = ex.Message }); }
 
         var taskId = _taskManager.CreateTask();
-        _ = _dropService.RunAsync(taskId, indexId, req.Period ?? "month", req.TopN);
+        var mode   = req.Mode is "rise" ? "rise" : "drop";
+        _ = _dropService.RunAsync(taskId, indexId, req.Period ?? "month", req.TopN, mode);
         return Ok(new { task_id = taskId });
     }
 
@@ -90,12 +91,13 @@ public class ApiController : ControllerBase
         var module    = _registry.Get(result.IndexId);
         var nameZh    = module.Descriptor.DisplayNameZh;
         var periodLbl = LocalizationHelper.PeriodLabel(result.Period, locale);
+        var isRise    = result.Mode == "rise";
 
         using var wb = new XLWorkbook();
 
         var sheetTop = locale.StartsWith("zh")
-            ? $"跌幅前{topN}（{periodLbl}）"
-            : $"Top {topN} ({periodLbl})";
+            ? $"{(isRise ? "漲幅" : "跌幅")}前{topN}（{periodLbl}）"
+            : $"Top {topN} {(isRise ? "Gainers" : "Losers")} ({periodLbl})";
         var sheetAll = LocalizationHelper.Get("sheet.all", locale);
 
         WriteSheet(wb, sheetTop, topLosers, withIndex: true,  locale: locale);
@@ -103,7 +105,8 @@ public class ApiController : ControllerBase
 
         using var ms = new MemoryStream();
         wb.SaveAs(ms);
-        var filename = $"{nameZh}跌幅分析_{periodLbl}_{result.GeneratedAt[..10]}.xlsx";
+        var modeLabel = locale.StartsWith("zh") ? (isRise ? "漲幅" : "跌幅") : (isRise ? "gainers" : "losers");
+        var filename  = $"{nameZh}{modeLabel}分析_{periodLbl}_{result.GeneratedAt[..10]}.xlsx";
         return File(ms.ToArray(),
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             filename);
@@ -150,6 +153,7 @@ public class ApiController : ControllerBase
     {
         index_id     = r.IndexId,
         period       = r.Period,
+        mode         = r.Mode,
         currency     = r.Currency,
         start_date   = r.StartDate,
         end_date     = r.EndDate,
@@ -177,6 +181,7 @@ public class StartRequest
 {
     public string? Index  { get; set; }   // "csi500" | "sox" | "ndx"（預設 csi500）
     public string? Period { get; set; }
+    public string? Mode   { get; set; }   // "drop" | "rise"（預設 drop）
     [System.Text.Json.Serialization.JsonPropertyName("top_n")]
     public int TopN { get; set; } = 10;
 }

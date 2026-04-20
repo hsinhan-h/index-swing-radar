@@ -15,6 +15,7 @@ public class TaskResult
 {
     public string IndexId { get; set; } = "";      // "csi500" | "sox" | "ndx"
     public string Period { get; set; } = "";        // "week" | "month"
+    public string Mode { get; set; } = "drop";     // "drop" | "rise"
     public string Currency { get; set; } = "";      // "CNY" | "USD"
     public string StartDate { get; set; } = "";
     public string EndDate { get; set; } = "";

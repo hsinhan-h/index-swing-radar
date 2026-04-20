@@ -138,6 +138,15 @@
         </select>
       </div>
       <div class="field">
+        <label data-i18n="label.mode">排行方向</label>
+        <div class="period-group">
+          <button class="pbtn active" id="btn-drop" onclick="setMode('drop')"
+            data-i18n="label.mode.drop">跌幅排行</button>
+          <button class="pbtn" id="btn-rise" onclick="setMode('rise')"
+            data-i18n="label.mode.rise">漲幅排行</button>
+        </div>
+      </div>
+      <div class="field">
         <label data-i18n="label.period">時間區間</label>
         <div class="period-group">
           <button class="pbtn" id="btn-week" onclick="setPeriod('week')"
@@ -280,12 +289,18 @@ function onIndexChange() {
 }
 
 // ── 查詢流程 ───────────────────────────────────────────────────────────
-let period = 'month', taskId = null, pollT = null, lastResult = null;
+let period = 'month', mode = 'drop', taskId = null, pollT = null, lastResult = null;
 
 function setPeriod(p) {
   period = p;
   document.getElementById('btn-week').classList.toggle('active', p === 'week');
   document.getElementById('btn-month').classList.toggle('active', p === 'month');
+}
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-drop').classList.toggle('active', m === 'drop');
+  document.getElementById('btn-rise').classList.toggle('active', m === 'rise');
 }
 
 async function startQuery() {
@@ -303,7 +318,7 @@ async function startQuery() {
   const res = await fetch('/api/start', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ index: indexId, period, top_n: topN })
+    body: JSON.stringify({ index: indexId, period, mode, top_n: topN })
   });
   const { task_id } = await res.json();
   taskId = task_id;
@@ -358,12 +373,16 @@ function render(r) {
     th.textContent = t(th.getAttribute('data-i18n'));
   });
 
+  // 模式標籤
+  const modeLabel = t('label.mode.' + (r.mode || 'drop'));
+
   // 區間標籤
   const periodLabel = t('period.' + r.period);
 
   // meta row
   document.getElementById('meta-row').innerHTML = `
     <div class="chip">${t('meta.period')}：<span>${periodLabel}</span></div>
+    <div class="chip">${t('label.mode')}：<span>${modeLabel}</span></div>
     <div class="chip">${t('meta.start')}：<span>${fmt(r.start_date)}</span></div>
     <div class="chip">${t('meta.end')}：<span>${fmt(r.end_date)}</span></div>
     <div class="chip">${t('meta.fetched')}：<span>${r.fetched}/${r.total}</span></div>

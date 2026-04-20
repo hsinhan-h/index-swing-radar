@@ -21,7 +21,7 @@ public class DropAnalysisService
         _registry    = registry;
     }
 
-    public async Task RunAsync(string taskId, string indexId, string period, int topN)
+    public async Task RunAsync(string taskId, string indexId, string period, int topN, string mode = "drop")
     {
         _taskManager.SetRunning(taskId);
         void Progress(string msg, int? pct = null) =>
@@ -70,13 +70,16 @@ public class DropAnalysisService
 
             // Step 4：排序並儲存
             Progress("排序整理結果中...");
-            var sorted     = results.OrderBy(r => r.PctChange).ToList();
+            var sorted = mode == "rise"
+                ? results.OrderByDescending(r => r.PctChange).ToList()
+                : results.OrderBy(r => r.PctChange).ToList();
             var topLosers  = sorted.Take(topN).ToList();
 
             _taskManager.SetDone(taskId, new TaskResult
             {
                 IndexId     = descriptor.Id,
                 Period      = period,
+                Mode        = mode,
                 Currency    = descriptor.Currency,
                 StartDate   = startDate.ToString("yyyyMMdd"),
                 EndDate     = endDate.ToString("yyyyMMdd"),
