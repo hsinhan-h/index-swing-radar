@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace Csi500DropRadar.Services.Indices.Ndx;
+namespace IndexSwingRadar.Services.Indices.Ndx;
 
 /// <summary>
 /// 從 Yahoo Finance quoteSummary API 取得 Nasdaq-100（NDX）成分股清單。

@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices.UsCommon;
+namespace IndexSwingRadar.Services.Indices.UsCommon;
 
 /// <summary>
 /// NYSE / NASDAQ 交易日曆。

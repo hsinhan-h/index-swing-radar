@@ -1,11 +1,11 @@
 using ClosedXML.Excel;
-using Csi500DropRadar.Models;
-using Csi500DropRadar.Services;
-using Csi500DropRadar.Services.Indices;
-using Csi500DropRadar.Services.Localization;
+using IndexSwingRadar.Models;
+using IndexSwingRadar.Services;
+using IndexSwingRadar.Services.Indices;
+using IndexSwingRadar.Services.Localization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Csi500DropRadar.Controllers;
+namespace IndexSwingRadar.Controllers;
 
 [ApiController]
 public class ApiController : ControllerBase

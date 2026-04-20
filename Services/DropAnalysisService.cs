@@ -1,7 +1,7 @@
-using Csi500DropRadar.Models;
-using Csi500DropRadar.Services.Indices;
+using IndexSwingRadar.Models;
+using IndexSwingRadar.Services.Indices;
 
-namespace Csi500DropRadar.Services;
+namespace IndexSwingRadar.Services;
 
 /// <summary>
 /// 泛化的跌幅分析服務。所有指數特定邏輯（時區、資料源、成分股清單）

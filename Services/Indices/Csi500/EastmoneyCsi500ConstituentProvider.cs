@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace Csi500DropRadar.Services.Indices.Csi500;
+namespace IndexSwingRadar.Services.Indices.Csi500;
 
 /// <summary>從東方財富 push2 API 取得中證500 成分股清單（BK0701，翻頁抓取）。</summary>
 public class EastmoneyCsi500ConstituentProvider : IConstituentProvider

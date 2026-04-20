@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices.Sox;
+namespace IndexSwingRadar.Services.Indices.Sox;
 
 /// <summary>
 /// 從 iShares SOXX ETF 每日持股 CSV 取得 PHLX 半導體指數成分股。

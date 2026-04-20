@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Localization;
+namespace IndexSwingRadar.Services.Localization;
 
 /// <summary>
 /// 極簡靜態 i18n 工具。鍵值表與前端 wwwroot/i18n/*.json 語義對應。

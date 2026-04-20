@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices;
+namespace IndexSwingRadar.Services.Indices;
 
 /// <summary>以 id（"csi500"、"sox"、"ndx"…）為 key 的指數模組查詢表。</summary>
 public class IndexRegistry

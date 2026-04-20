@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices;
+namespace IndexSwingRadar.Services.Indices;
 
 /// <summary>供各 Provider 共用的 HTTP 工具方法。</summary>
 public static class CommonHttp

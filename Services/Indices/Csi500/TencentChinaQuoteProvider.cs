@@ -1,8 +1,8 @@
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using Csi500DropRadar.Models;
+using IndexSwingRadar.Models;
 
-namespace Csi500DropRadar.Services.Indices.Csi500;
+namespace IndexSwingRadar.Services.Indices.Csi500;
 
 /// <summary>從騰訊財經取得個股前複權日 K 線（qfq/day），計算期間漲跌幅。</summary>
 public class TencentChinaQuoteProvider : IQuoteProvider

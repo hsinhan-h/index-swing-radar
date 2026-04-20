@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices;
+namespace IndexSwingRadar.Services.Indices;
 
 public interface IMarketClock
 {

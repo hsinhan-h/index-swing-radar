@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices.Csi500;
+namespace IndexSwingRadar.Services.Indices.Csi500;
 
 /// <summary>
 /// 中國 A 股交易日曆。

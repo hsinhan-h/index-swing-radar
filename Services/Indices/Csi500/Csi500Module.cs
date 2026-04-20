@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices.Csi500;
+namespace IndexSwingRadar.Services.Indices.Csi500;
 
 public class Csi500Module : IMarketIndexModule
 {

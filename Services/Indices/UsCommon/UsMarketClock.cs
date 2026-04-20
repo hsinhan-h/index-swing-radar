@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices.UsCommon;
+namespace IndexSwingRadar.Services.Indices.UsCommon;
 
 /// <summary>以美東時間（16:00 收盤）為基準，回傳最近一個美股交易日。</summary>
 public class UsMarketClock : IMarketClock

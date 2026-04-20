@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Models;
+namespace IndexSwingRadar.Models;
 
 public enum JobStatus { Pending, Running, Done, Error }
 

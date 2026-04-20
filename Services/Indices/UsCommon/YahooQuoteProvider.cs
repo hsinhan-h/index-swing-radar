@@ -1,7 +1,7 @@
 using System.Text.Json;
-using Csi500DropRadar.Models;
+using IndexSwingRadar.Models;
 
-namespace Csi500DropRadar.Services.Indices.UsCommon;
+namespace IndexSwingRadar.Services.Indices.UsCommon;
 
 /// <summary>
 /// 從 Yahoo Finance v8 chart API 取得美股前複權日 K 線。

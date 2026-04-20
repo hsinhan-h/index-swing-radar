@@ -4,7 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>csi500_drop_radar</RootNamespace>
+    <RootNamespace>index_swing_radar</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

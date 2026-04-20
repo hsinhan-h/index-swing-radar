@@ -1,9 +1,9 @@
-using Csi500DropRadar.Services;
-using Csi500DropRadar.Services.Indices;
-using Csi500DropRadar.Services.Indices.Csi500;
-using Csi500DropRadar.Services.Indices.Ndx;
-using Csi500DropRadar.Services.Indices.Sox;
-using Csi500DropRadar.Services.Indices.UsCommon;
+using IndexSwingRadar.Services;
+using IndexSwingRadar.Services.Indices;
+using IndexSwingRadar.Services.Indices.Csi500;
+using IndexSwingRadar.Services.Indices.Ndx;
+using IndexSwingRadar.Services.Indices.Sox;
+using IndexSwingRadar.Services.Indices.UsCommon;
 
 var builder = WebApplication.CreateBuilder(args);
 

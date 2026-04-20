@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices;
+namespace IndexSwingRadar.Services.Indices;
 
 /// <summary>
 /// 代表一個完整的指數模組。新增指數 = 實作此介面並在 Program.cs 以

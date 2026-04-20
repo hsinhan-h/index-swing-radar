@@ -1,6 +1,6 @@
-using Csi500DropRadar.Services.Indices.UsCommon;
+using IndexSwingRadar.Services.Indices.UsCommon;
 
-namespace Csi500DropRadar.Services.Indices.Ndx;
+namespace IndexSwingRadar.Services.Indices.Ndx;
 
 public class NdxModule : IMarketIndexModule
 {

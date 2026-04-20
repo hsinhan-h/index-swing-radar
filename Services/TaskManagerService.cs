@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
-using Csi500DropRadar.Models;
+using IndexSwingRadar.Models;
 
-namespace Csi500DropRadar.Services;
+namespace IndexSwingRadar.Services;
 
 public class TaskManagerService
 {

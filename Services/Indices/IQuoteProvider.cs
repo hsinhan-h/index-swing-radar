@@ -1,6 +1,6 @@
-using Csi500DropRadar.Models;
+using IndexSwingRadar.Models;
 
-namespace Csi500DropRadar.Services.Indices;
+namespace IndexSwingRadar.Services.Indices;
 
 public interface IQuoteProvider
 {

@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices.Csi500;
+namespace IndexSwingRadar.Services.Indices.Csi500;
 
 /// <summary>以北京時間（15:00 收盤）為基準，回傳最近一個中國 A 股交易日。</summary>
 public class ChinaMarketClock : IMarketClock

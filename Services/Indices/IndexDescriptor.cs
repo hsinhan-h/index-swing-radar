@@ -1,4 +1,4 @@
-namespace Csi500DropRadar.Services.Indices;
+namespace IndexSwingRadar.Services.Indices;
 
 /// <summary>描述一個指數的靜態元資訊，用於 /api/indices 回傳與 Excel 命名。</summary>
 public record IndexDescriptor(
