@@ -5,7 +5,11 @@ using IndexSwingRadar.Services.Indices.Ndx;
 using IndexSwingRadar.Services.Indices.Sox;
 using IndexSwingRadar.Services.Indices.UsCommon;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    ContentRootPath = AppContext.BaseDirectory,
+});
 
 // ── 各市場交易日曆 & 時鐘 ──────────────────────────────────────────────
 builder.Services.AddSingleton<ChinaTradingCalendar>();
@@ -38,8 +42,8 @@ builder.Services.AddControllers()
 
 var app = builder.Build();
 
-app.UseDefaultFiles();
 app.UseStaticFiles();
 app.MapControllers();
+app.MapFallbackToFile("index.html");
 
 app.Run();
