@@ -11,7 +11,7 @@ public class TencentChinaQuoteProvider : IQuoteProvider
 
     public TencentChinaQuoteProvider()
     {
-        _http = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
+        _http = CommonHttp.CreateIpv4Client();
         _http.DefaultRequestHeaders.Add("User-Agent",
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36");
         _http.DefaultRequestHeaders.Add("Referer", "https://gu.qq.com/");
